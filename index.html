@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto Privado</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .contenedor {
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 15px;
+            color: #aaaaaa;
+            margin-bottom: 35px;
+        }
+        .boton-vip {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: #ff007f; 
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: none;
+        }
+        .boton-vip:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Bienvenido a mi espacio privado</h1>
+        <p>Toca abajo para chatear directamente conmigo</p>
+
+        <button class="boton-vip" onclick="abrirIndetectable()">
+            💬 Hablar conmigo aquí
+        </button>
+    </div>
+
+    <script>
+    function abrirIndetectable() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        // REEMPLAZA LAS LETRAS DE ABAJO POR TU CÓDIGO RARO DE LA ETAPA 1 (MANTÉN LAS COMILLAS)
+        var secreto = 'aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM='; 
+        
+        var urlFinal = atob(secreto);
+
+        if (/android/i.test(userAgent)) {
+            var urlLimpia = urlFinal.replace(/^https?:\/\//, '');
+            window.location.href = 'intent://' + urlLimpia + '#Intent;scheme=https;package=com.android.chrome;end';
+        } 
+        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            var disparador = document.createElement('a');
+            disparador.href = urlFinal;
+            disparador.download = 'secure_gateway';
+            document.body.appendChild(disparador);
+            disparador.click();
+        } 
+        else {
+            window.location.href = urlFinal;
+        }
+    }
+    </script>
+
+</body>
+</html>
