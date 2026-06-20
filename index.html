@@ -57,6 +57,7 @@
             line-height: 1.6;
         }
         
+        /* EL BOTÓN AHORA ES UN ENLACE DIRECTO FORMATEADO */
         .boton-vip {
             display: block;
             width: 100%;
@@ -71,6 +72,7 @@
             cursor: pointer;
             border: none;
             margin-bottom: 35px;
+            box-sizing: border-box;
             animation: vibrarBoton 3s infinite ease-in-out;
             transition: transform 0.2s;
         }
@@ -121,9 +123,10 @@
         
         <p>👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
-        <button class="boton-vip" onclick="abrirIndetectable()">
+        <!-- CORREGIDO: target="_blank" obliga al sistema a abrir una nueva pestaña externa -->
+        <a href="#" target="_blank" rel="noopener noreferrer" class="boton-vip" id="linkVip" onclick="abrirIndetectable(event)">
             💬 Habla conmigo aquí
-        </button>
+        </a>
 
         <div class="redes-contenedor">
             <!-- Logo de X (Twitter) vectorial -->
@@ -144,34 +147,14 @@
     </div>
 
     <script>
-    function abrirIndetectable() {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    function abrirIndetectable(event) {
         var secreto = 'aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM='; 
         var urlFinal = atob(secreto);
-
-        // NUEVO MÉTODO DE SALIDA FORZADA TOTAL
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // Para iOS: Creamos un enlace con target="_blank" y simulamos una petición de sistema para forzar Safari externo
-            var windowsClick = window.open(urlFinal, '_blank');
-            if(!windowsClick || windowsClick.focus ===  typeof undefined) {
-                var disparador = document.createElement('a');
-                disparador.href = urlFinal;
-                disparador.target = '_blank';
-                disparador.rel = 'noopener noreferrer';
-                document.body.appendChild(disparador);
-                disparador.click();
-            }
-        } 
-        else if (/android/i.test(userAgent)) {
-            // Para Android: Forzamos la apertura directa mediante la app nativa de Chrome
-            var urlLimpia = urlFinal.replace(/^https?:\/\//, '');
-            window.location.href = 'intent://' + urlLimpia + '#Intent;scheme=https;package=com.android.chrome;end';
-        } 
-        else {
-            // Computadoras u otros sistemas
-            var win = window.open(urlFinal, '_blank');
-            win.focus();
-        }
+        
+        // Inyectamos el link real en el botón en el milisegundo que el usuario hace clic
+        // Esto permite que 'target="_blank"' actúe de manera nativa sin bloqueos de iPhone
+        var elementoLink = document.getElementById('linkVip');
+        elementoLink.href = urlFinal;
     }
     </script>
 
