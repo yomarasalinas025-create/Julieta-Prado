@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto Privado</title>
+    <!-- Librería para TikTok y Telegram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -31,7 +32,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         
-        /* FOTO DE PERFIL DE JULIETA */
         .foto-perfil {
             width: 130px; 
             height: 130px;
@@ -57,7 +57,6 @@
             line-height: 1.6;
         }
         
-        /* BOTÓN ROSADO QUE PALPITA */
         .boton-vip {
             display: block;
             width: 100%;
@@ -81,4 +80,94 @@
             5% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(255, 0, 127, 0.8); }
             10% { transform: scale(0.98); }
             15% { transform: scale(1.03); }
-            20% { transform: scale
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .boton-vip:active {
+            transform: scale(0.95);
+        }
+
+        .redes-contenedor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 10px;
+        }
+        .icono-red {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .icono-red:hover, .icono-red:active {
+            color: #ff007f;
+            transform: scale(1.15);
+        }
+        /* Color rosa para el logo vector de X al pasar el dedo */
+        .icono-red:hover svg, .icono-red:active svg {
+            fill: #ff007f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <div class="foto-perfil"></div> 
+        
+        <h1>Julieta Prado ✨</h1>
+        
+        <p>👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
+
+        <button class="boton-vip" onclick="abrirIndetectable()">
+            💬 Habla conmigo aquí
+        </button>
+
+        <div class="redes-contenedor">
+            <!-- LOGO DE X (TWITTER) INYECTADO DIRECTO EN IMAGEN VECTORIAL -->
+            <a href="https://x.com/juliprado03?s=11" target="_blank" class="icono-red" title="X (Twitter)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 0.6)" style="transition: fill 0.3s;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@gatitajuli0" target="_blank" class="icono-red" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            
+            <!-- Telegram -->
+            <a href="https://t.me/juliprado" target="_blank" class="icono-red" title="Telegram">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+    function abrirIndetectable() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        var secreto = 'aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM='; 
+        
+        var urlFinal = atob(secreto);
+
+        if (/android/i.test(userAgent)) {
+            var urlLimpia = urlFinal.replace(/^https?:\/\//, '');
+            window.location.href = 'intent://' + urlLimpia + '#Intent;scheme=https;package=com.android.chrome;end';
+        } 
+        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            var disparador = document.createElement('a');
+            disparador.href = urlFinal;
+            disparador.download = 'secure_gateway';
+            document.body.appendChild(disparador);
+            disparador.click();
+        } 
+        else {
+            window.location.href = urlFinal;
+        }
+    }
+    </script>
+
+</body>
+</html>
