@@ -107,7 +107,6 @@
             color: #ff007f;
             transform: scale(1.15);
         }
-        /* Color rosa para el logo vector de X al pasar el dedo */
         .icono-red:hover svg, .icono-red:active svg {
             fill: #ff007f;
         }
@@ -127,7 +126,7 @@
         </button>
 
         <div class="redes-contenedor">
-            <!-- LOGO DE X (TWITTER) INYECTADO DIRECTO EN IMAGEN VECTORIAL -->
+            <!-- Logo de X (Twitter) vectorial -->
             <a href="https://x.com/juliprado03?s=11" target="_blank" class="icono-red" title="X (Twitter)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 0.6)" style="transition: fill 0.3s;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -147,24 +146,31 @@
     <script>
     function abrirIndetectable() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
         var secreto = 'aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM='; 
-        
         var urlFinal = atob(secreto);
 
-        if (/android/i.test(userAgent)) {
+        // NUEVO MÉTODO DE SALIDA FORZADA TOTAL
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // Para iOS: Creamos un enlace con target="_blank" y simulamos una petición de sistema para forzar Safari externo
+            var windowsClick = window.open(urlFinal, '_blank');
+            if(!windowsClick || windowsClick.focus ===  typeof undefined) {
+                var disparador = document.createElement('a');
+                disparador.href = urlFinal;
+                disparador.target = '_blank';
+                disparador.rel = 'noopener noreferrer';
+                document.body.appendChild(disparador);
+                disparador.click();
+            }
+        } 
+        else if (/android/i.test(userAgent)) {
+            // Para Android: Forzamos la apertura directa mediante la app nativa de Chrome
             var urlLimpia = urlFinal.replace(/^https?:\/\//, '');
             window.location.href = 'intent://' + urlLimpia + '#Intent;scheme=https;package=com.android.chrome;end';
         } 
-        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            var disparador = document.createElement('a');
-            disparador.href = urlFinal;
-            disparador.download = 'secure_gateway';
-            document.body.appendChild(disparador);
-            disparador.click();
-        } 
         else {
-            window.location.href = urlFinal;
+            // Computadoras u otros sistemas
+            var win = window.open(urlFinal, '_blank');
+            win.focus();
         }
     }
     </script>
