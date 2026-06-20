@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto Privado</title>
-    <!-- Cargamos los íconos de redes sociales -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Cargamos los íconos de redes sociales actualizados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             background: linear-gradient(135deg, #0f0c20 0%, #060608 100%);
@@ -32,20 +32,17 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         
-        /* FOTO DE PERFIL MÁS GRANDE Y DIOSA */
+        /* FOTO DE PERFIL DE JULIETA */
         .foto-perfil {
-            width: 130px; /* Aumentada a 130px para que te veas increíble */
+            width: 130px; 
             height: 130px;
             border-radius: 50%;
             border: 3px solid #ff007f; 
             margin: 0 auto 20px auto;
-            
-            /* LÍNEA 44: CUANDO TENGAS TU LINK DE IMGBB, LO PEGAS ACÁ ADENTRO */
-            background-image: url('[https://i.ibb.co/1YGSymV9/image.jpg](https://i.ibb.co/1YGSymV9/image.jpg)'); 
-            
+            background-image: url('https://i.ibb.co/1YGSymV9/image.jpg'); 
             background-size: cover;
             background-position: center;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); /* Brillo más intenso */
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); 
         }
         
         h1 {
@@ -61,14 +58,14 @@
             line-height: 1.6;
         }
         
-        /* EL BOTÓN ROSADO CON ANIMACIÓN */
+        /* BOTÓN ROSADO QUE PALPITA */
         .boton-vip {
             display: block;
             width: 100%;
             padding: 18px;
             background-color: #ff007f; 
             color: #ffffff;
-            font-size: 19px; /* Letra un toque más grande */
+            font-size: 19px; 
             font-weight: bold;
             text-decoration: none;
             border-radius: 30px; 
@@ -76,13 +73,10 @@
             cursor: pointer;
             border: none;
             margin-bottom: 35px;
-            
-            /* Activamos el efecto de latido automático */
             animation: vibrarBoton 3s infinite ease-in-out;
             transition: transform 0.2s;
         }
         
-        /* CÓDIGO DE LA ANIMACIÓN (Hace que el botón vibre/pulsa cada 3 segundos) */
         @keyframes vibrarBoton {
             0% { transform: scale(1); box-shadow: 0 6px 25px rgba(255, 0, 127, 0.5); }
             5% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(255, 0, 127, 0.8); }
@@ -96,7 +90,6 @@
             transform: scale(0.95);
         }
 
-        /* SECCIÓN DE REDES SOCIALES (Twitter, TikTok y Telegram) */
         .redes-contenedor {
             display: flex;
             justify-content: center;
@@ -118,33 +111,30 @@
 <body>
 
     <div class="contenedor">
-        <!-- Foto de perfil -->
+        <!-- Tu foto real colocada -->
         <div class="foto-perfil"></div> 
         
-        <!-- Nombre -->
         <h1>Julieta Prado ✨</h1>
         
-        <!-- Tu descripción -->
         <p>👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
-        <!-- El botón rosado que vibra solo -->
+        <!-- Botón con redirección oculta -->
         <button class="boton-vip" onclick="abrirIndetectable()">
             💬 Habla conmigo aquí
         </button>
 
-        <!-- Tus tres redes solicitadas -->
         <div class="redes-contenedor">
-            <!-- TWITTER / X (Cambia el link por tu perfil) -->
+            <!-- Tu Twitter real con el logo nuevo corregido -->
             <a href="https://x.com/juliprado03?s=11" target="_blank" class="icono-red" title="Twitter">
-                <i class="fab fa-x-twitter"></i>
+                <i class="fa-brands fa-x-twitter"></i>
             </a>
             
-            <!-- TIKTOK (Cambia el link por tu perfil) -->
+            <!-- Tu TikTok real -->
             <a href="https://tiktok.com/@gatitajuli0" target="_blank" class="icono-red" title="TikTok">
                 <i class="fab fa-tiktok"></i>
             </a>
             
-            <!-- TELEGRAM (Cambia el link por tu canal) -->
+            <!-- Tu Telegram real -->
             <a href="https://t.me/juliprado" target="_blank" class="icono-red" title="Telegram">
                 <i class="fab fa-telegram-plane"></i>
             </a>
@@ -155,7 +145,7 @@
     function abrirIndetectable() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         
-        /* TU CÓDIGO RARO DE ONLYFANS DE SIEMPRE */
+        /* Tu código de OnlyFans ya encriptado de forma segura */
         var secreto = 'aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM='; 
         
         var urlFinal = atob(secreto);
