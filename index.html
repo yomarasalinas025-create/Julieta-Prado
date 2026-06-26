@@ -83,7 +83,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
+            gap: 22px; /* Ajustado para que entren cómodos los 4 íconos */
         }
         .icono {
             color: rgba(255, 255, 255, 0.6);
@@ -118,6 +118,7 @@
             </a>
             <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a class="icono" href="https://t.me/juliprado" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 
@@ -127,6 +128,7 @@
         
         const textos = {
             es: {
+                bio: "👋 Solamente contesto los mensajes por qPCR. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
                 bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
                 boton: "💬 Habla conmigo aquí"
             },
@@ -149,7 +151,6 @@
 
         // SISTEMA DE APERTURA ULTRA-SEGURO DECODIFICADO EN BASE64
         document.getElementById('boton-link').addEventListener('click', function() {
-            // Tu OnlyFans encriptado e invisible para los rastreadores
             const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
             const linkReal = atob(codigoSecreto); 
             window.open(linkReal, '_blank');
