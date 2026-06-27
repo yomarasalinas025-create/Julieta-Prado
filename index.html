@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GF2M8EMBZG');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julieta Prado</title>
@@ -44,21 +52,10 @@
             box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); 
         }
         
-        h1 {
-            font-size: 26px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+        h1 { font-size: 26px; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
+        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; }
         
-        p.descripcion {
-            font-size: 14.5px;
-            color: #e2e2e9;
-            margin-bottom: 28px;
-            line-height: 1.5;
-        }
-        
-        /* BOTÓN REAL CON ANIMACIÓN DE VIBRACIÓN/PULSO */
+        /* BOTÓN CON VIBRACIÓN CONTINUA RÁPIDA */
         .boton-real {
             display: block;
             width: 100%;
@@ -74,19 +71,17 @@
             margin-bottom: 35px;
             cursor: pointer;
             transition: transform 0.2s;
-            animation: vibrarBoton 1.5s infinite ease-in-out;
+            animation: vibrarRapido 1.2s infinite ease-in-out;
         }
-        .boton-real:active {
-            transform: scale(0.98);
-        }
+        .boton-real:active { transform: scale(0.98); }
 
-        /* Animación para el botón fucsia */
-        @keyframes vibrarBoton {
+        @keyframes vibrarRapido {
             0% { transform: scale(1); }
-            10% { transform: scale(1.04) rotate(-1deg); }
-            20% { transform: scale(1.04) rotate(1deg); }
-            30% { transform: scale(1.04) rotate(-1deg); }
-            40% { transform: scale(1); }
+            5% { transform: scale(1.05) rotate(-1.5deg); }
+            10% { transform: scale(1.05) rotate(1.5deg); }
+            15% { transform: scale(1.05) rotate(-1.5deg); }
+            20% { transform: scale(1.05) rotate(1.5deg); }
+            25% { transform: scale(1); }
             100% { transform: scale(1); }
         }
         
@@ -97,7 +92,7 @@
             gap: 24px; 
         }
         
-        /* ÍCONOS GENERALES MÁS GRANDES (de 22px pasaron a 28px) */
+        /* ÍCONOS MÁS GRANDES */
         .icono {
             color: rgba(255, 255, 255, 0.6);
             font-size: 28px; 
@@ -107,19 +102,16 @@
             align-items: center;
             justify-content: center;
         }
-        .icono:hover {
+        .icono:hover { color: #ff007f; }
+
+        /* TELEGRAM TITILANDO Y FUCSIA */
+        .telegram-animado {
+            animation: titilarTelegram 0.6s infinite ease-in-out;
             color: #ff007f;
         }
-
-        /* ANIMACIÓN DE TITILEO RÁPIDO PARA TELEGRAM */
-        .telegram-animado {
-            animation: titilarTelegram 0.8s infinite ease-in-out;
-            color: #ff007f; /* Lo puse fucsia de entrada para que llame aún más la atención, si preferís blanco me avisás */
-        }
-
         @keyframes titilarTelegram {
-            0%, 100% { opacity: 0.4; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.1); }
+            0%, 100% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.15); }
         }
     </style>
 </head>
@@ -153,9 +145,8 @@
     </div>
 
     <script>
-        // TRADUCCIÓN AUTOMÁTICA SEGÚN EL TELÉFONO DEL USUARIO
+        // TRADUCCIÓN AUTOMÁTICA
         const idiomaCelular = navigator.language || navigator.userLanguage;
-        
         const textos = {
             es: {
                 bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
@@ -178,14 +169,22 @@
         document.getElementById('texto-bio').innerHTML = textos[idiomaFinal].bio;
         document.getElementById('boton-link').innerHTML = textos[idiomaFinal].boton;
 
-        // SISTEMA DE APERTURA ULTRA-SEGURO DECODIFICADO EN BASE64
+        // APERTURA BLINDADA Y MEDIDOR DE CLIC FINAL (Paso 3)
         document.getElementById('boton-link').addEventListener('click', function() {
-            const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
-            const linkReal = atob(codigoSecreto); 
-            window.open(linkReal, '_blank');
+            // Registrar evento en Google Analytics antes de abrir
+            gtag('event', 'paso3_clic_onlyfans', {
+                'event_callback': function() {
+                    const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
+                    window.open(atob(codigoSecreto), '_blank');
+                }
+            });
+            // Resguardo de apertura rápida
+            setTimeout(function() {
+                const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
+                window.open(atob(codigoSecreto), '_blank');
+            }, 400);
         });
     </script>
 
 </body>
 </html>
-
