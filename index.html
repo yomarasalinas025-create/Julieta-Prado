@@ -122,7 +122,7 @@
         
         <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
-        <a href="habla-conmigo.html" class="boton-real" id="boton-link">
+        <a href="/Julieta-Prado/habla-conmigo.html" class="boton-real" id="boton-link">
             💬 Habla conmigo aquí
         </a>
 
@@ -167,16 +167,16 @@
         document.getElementById('texto-bio').innerHTML = textos[idiomaFinal].bio;
         document.getElementById('boton-link').innerHTML = textos[idiomaFinal].boton;
 
-        // SEGUIMIENTO DE GOOGLE ANALYTICS ANTES DE IR A LA PÁGINA OCULTA
+        // Corregido: va a la ruta exacta del repositorio tras registrar Analytics
         document.getElementById('boton-link').addEventListener('click', function(e) {
             e.preventDefault();
             gtag('event', 'paso3_clic_onlyfans', {
                 'event_callback': function() {
-                    window.location.href = "habla-conmigo.html";
+                    window.location.href = "/Julieta-Prado/habla-conmigo.html";
                 }
             });
             setTimeout(function() {
-                window.location.href = "habla-conmigo.html";
+                window.location.href = "/Julieta-Prado/habla-conmigo.html";
             }, 300);
         });
     </script>
