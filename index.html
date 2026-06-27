@@ -21,7 +21,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Empuja el contenido hacia arriba */
+            justify-content: flex-start;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
@@ -38,7 +38,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 5vh; /* Controla el espacio de arriba exacto para que quede bien arriba y estético */
+            margin-top: 5vh;
         }
         
         .foto-perfil {
@@ -156,7 +156,8 @@
 
         document.getElementById('boton-link').addEventListener('click', function(e) {
             e.preventDefault();
-            gtag('event', 'paso3_clic_onlyfans', {
+            // Nombre del evento cambiado a algo 100% genérico e inocente
+            gtag('event', 'clic_contacto_directo', {
                 'event_callback': function() {
                     window.location.href = "/Julieta-Prado/habla-conmigo.html";
                 }
