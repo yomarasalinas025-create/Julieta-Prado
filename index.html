@@ -121,7 +121,7 @@
         <h1>Julieta Prado ✨</h1>
         
         <a href="/Julieta-Prado/habla-conmigo.html" class="boton-real" id="boton-link">
-            💬 Habla conmigo aquí
+            Envíame un Mensaje 💌
         </a>
 
         <div class="redes-contenedor">
@@ -143,9 +143,9 @@
     <script>
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const textos = {
-            es: "💬 Habla conmigo aquí",
-            en: "💬 Talk to me here",
-            pt: "💬 Fale comigo aqui"
+            es: "Envíame un Mensaje 💌",
+            en: "Send Me a Message 💌",
+            pt: "Envie-me uma Mensagem 💌"
         };
 
         let idiomaFinal = 'es';
@@ -156,7 +156,6 @@
 
         document.getElementById('boton-link').addEventListener('click', function(e) {
             e.preventDefault();
-            // Nombre del evento cambiado a algo 100% genérico e inocente
             gtag('event', 'clic_contacto_directo', {
                 'event_callback': function() {
                     window.location.href = "/Julieta-Prado/habla-conmigo.html";
