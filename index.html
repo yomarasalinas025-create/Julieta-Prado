@@ -21,8 +21,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* Corrección de centrado vertical perfecto */
+            justify-content: flex-start; /* Empuja el contenido hacia arriba */
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
@@ -38,7 +38,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin: auto 0; /* Esto obliga a la tarjeta a quedarse siempre en el centro exacto */
+            margin-top: 5vh; /* Controla el espacio de arriba exacto para que quede bien arriba y estético */
         }
         
         .foto-perfil {
@@ -169,4 +169,3 @@
 
 </body>
 </html>
-
