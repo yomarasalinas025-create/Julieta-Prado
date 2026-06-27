@@ -72,6 +72,7 @@
             cursor: pointer;
             transition: transform 0.2s;
             animation: vibrarRapido 1.2s infinite ease-in-out;
+            box-sizing: border-box;
         }
         .boton-real:active { transform: scale(0.98); }
 
@@ -92,7 +93,6 @@
             gap: 24px; 
         }
         
-        /* ÍCONOS MÁS GRANDES */
         .icono {
             color: rgba(255, 255, 255, 0.6);
             font-size: 28px; 
@@ -104,7 +104,6 @@
         }
         .icono:hover { color: #ff007f; }
 
-        /* TELEGRAM TITILANDO Y FUCSIA */
         .telegram-animado {
             animation: titilarTelegram 0.6s infinite ease-in-out;
             color: #ff007f;
@@ -124,6 +123,7 @@
         
         <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
+        <!-- El botón sigue idéntico a lo que querías -->
         <button class="boton-real" id="boton-link">
             💬 Habla conmigo aquí
         </button>
@@ -169,19 +169,16 @@
         document.getElementById('texto-bio').innerHTML = textos[idiomaFinal].bio;
         document.getElementById('boton-link').innerHTML = textos[idiomaFinal].boton;
 
-        // APERTURA BLINDADA Y MEDIDOR DE CLIC FINAL (Paso 3)
+        // APERTURA CON EL ENLACE INTELIGENTE DE OPENUP
         document.getElementById('boton-link').addEventListener('click', function() {
-            // Registrar evento en Google Analytics antes de abrir
             gtag('event', 'paso3_clic_onlyfans', {
                 'event_callback': function() {
-                    const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
-                    window.open(atob(codigoSecreto), '_blank');
+                    // Aquí se abre directamente tu link de OpenUp que saca al usuario de Instagram
+                    window.open("https://openup.to/ndxok4z3", '_blank');
                 }
             });
-            // Resguardo de apertura rápida
             setTimeout(function() {
-                const codigoSecreto = "aHR0cHM6Ly9vbmx5ZmFucy5jb20vanVsaXByYWRvMDM=";
-                window.open(atob(codigoSecreto), '_blank');
+                window.open("https://openup.to/ndxok4z3", '_blank');
             }, 400);
         });
     </script>
