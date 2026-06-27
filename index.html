@@ -22,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh; /* Corrección de centrado vertical perfecto */
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
@@ -38,11 +38,12 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin: auto 0; /* Esto obliga a la tarjeta a quedarse siempre en el centro exacto */
         }
         
         .foto-perfil {
-            width: 160px; /* FOTO MÁS GRANDE */
-            height: 160px; /* FOTO MÁS GRANDE */
+            width: 160px; 
+            height: 160px; 
             border-radius: 50%;
             border: 4px solid #ff007f; 
             margin: 0 auto 25px auto;
@@ -57,10 +58,10 @@
         .boton-real {
             display: block;
             width: 100%;
-            padding: 20px; /* BOTÓN MÁS GRANDE */
+            padding: 20px; 
             background-color: #ff007f; 
             color: #ffffff;
-            font-size: 21px; /* LETRA MÁS GRANDE */
+            font-size: 21px; 
             font-weight: bold;
             text-decoration: none;
             border-radius: 35px; 
@@ -93,7 +94,7 @@
         
         .icono {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 34px; /* ÍCONOS MÁS GRANDES */
+            font-size: 34px; 
             text-decoration: none;
             transition: color 0.2s;
             display: inline-flex;
@@ -140,12 +141,11 @@
     </div>
 
     <script>
-        // TRADUCCIÓN DEL BOTÓN (Se mantiene por si entra alguien en otro idioma)
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const textos = {
             es: "💬 Habla conmigo aquí",
             en: "💬 Talk to me here",
-            pt: "💬 Fale conmigo aqui"
+            pt: "💬 Fale comigo aqui"
         };
 
         let idiomaFinal = 'es';
@@ -169,3 +169,4 @@
 
 </body>
 </html>
+
