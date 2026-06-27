@@ -55,7 +55,6 @@
         h1 { font-size: 26px; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
         p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; }
         
-        /* BOTÓN CON VIBRACIÓN CONTINUA RÁPIDA */
         .boton-real {
             display: block;
             width: 100%;
@@ -123,10 +122,9 @@
         
         <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
-        <!-- El botón sigue idéntico a lo que querías -->
-        <button class="boton-real" id="boton-link">
+        <a href="habla-conmigo.html" class="boton-real" id="boton-link">
             💬 Habla conmigo aquí
-        </button>
+        </a>
 
         <div class="redes-contenedor">
             <a class="icono telegram-animado" href="https://t.me/juliprado" target="_blank">
@@ -157,7 +155,7 @@
                 boton: "💬 Talk to me here"
             },
             pt: {
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇",
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 o conocer un poco mais... clique abaixo! 👇",
                 boton: "💬 Fale comigo aqui"
             }
         };
@@ -169,17 +167,17 @@
         document.getElementById('texto-bio').innerHTML = textos[idiomaFinal].bio;
         document.getElementById('boton-link').innerHTML = textos[idiomaFinal].boton;
 
-        // APERTURA CON EL ENLACE INTELIGENTE DE OPENUP
-        document.getElementById('boton-link').addEventListener('click', function() {
+        // SEGUIMIENTO DE GOOGLE ANALYTICS ANTES DE IR A LA PÁGINA OCULTA
+        document.getElementById('boton-link').addEventListener('click', function(e) {
+            e.preventDefault();
             gtag('event', 'paso3_clic_onlyfans', {
                 'event_callback': function() {
-                    // Aquí se abre directamente tu link de OpenUp que saca al usuario de Instagram
-                    window.open("https://openup.to/ndxok4z3", '_blank');
+                    window.location.href = "habla-conmigo.html";
                 }
             });
             setTimeout(function() {
-                window.open("https://openup.to/ndxok4z3", '_blank');
-            }, 400);
+                window.location.href = "habla-conmigo.html";
+            }, 300);
         });
     </script>
 
