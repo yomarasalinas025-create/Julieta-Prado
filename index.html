@@ -58,7 +58,7 @@
             line-height: 1.5;
         }
         
-        /* BOTÓN REAL CON ACCIÓN CRIPTOGRÁFICA */
+        /* BOTÓN REAL CON ANIMACIÓN DE VIBRACIÓN/PULSO */
         .boton-real {
             display: block;
             width: 100%;
@@ -71,23 +71,36 @@
             border-radius: 30px; 
             box-shadow: 0 6px 25px rgba(255, 0, 127, 0.3);
             border: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             cursor: pointer;
             transition: transform 0.2s;
+            animation: vibrarBoton 1.5s infinite ease-in-out;
         }
         .boton-real:active {
             transform: scale(0.98);
+        }
+
+        /* Animación para el botón fucsia */
+        @keyframes vibrarBoton {
+            0% { transform: scale(1); }
+            10% { transform: scale(1.04) rotate(-1deg); }
+            20% { transform: scale(1.04) rotate(1deg); }
+            30% { transform: scale(1.04) rotate(-1deg); }
+            40% { transform: scale(1); }
+            100% { transform: scale(1); }
         }
         
         .redes-contenedor {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 22px; /* Ajustado para que entren cómodos los 4 íconos */
+            gap: 24px; 
         }
+        
+        /* ÍCONOS GENERALES MÁS GRANDES (de 22px pasaron a 28px) */
         .icono {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 22px;
+            font-size: 28px; 
             text-decoration: none;
             transition: color 0.2s;
             display: inline-flex;
@@ -96,6 +109,17 @@
         }
         .icono:hover {
             color: #ff007f;
+        }
+
+        /* ANIMACIÓN DE TITILEO RÁPIDO PARA TELEGRAM */
+        .telegram-animado {
+            animation: titilarTelegram 0.8s infinite ease-in-out;
+            color: #ff007f; /* Lo puse fucsia de entrada para que llame aún más la atención, si preferís blanco me avisás */
+        }
+
+        @keyframes titilarTelegram {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
     </style>
 </head>
@@ -113,12 +137,18 @@
         </button>
 
         <div class="redes-contenedor">
-            <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <a class="icono telegram-animado" href="https://t.me/juliprado" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
             </a>
-            <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a class="icono" href="https://t.me/juliprado" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-            <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
     </div>
 
@@ -128,7 +158,6 @@
         
         const textos = {
             es: {
-                bio: "👋 Solamente contesto los mensajes por qPCR. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
                 bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
                 boton: "💬 Habla conmigo aquí"
             },
@@ -159,3 +188,4 @@
 
 </body>
 </html>
+
